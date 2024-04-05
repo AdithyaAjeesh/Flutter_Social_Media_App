@@ -1,11 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:social_media_app/controller/functions_provider.dart';
-import 'package:social_media_app/view/home_screen.dart';
 import 'package:social_media_app/view/splash_screen.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
+  await SharedPreferences.getInstance();
 }
 
 class MyApp extends StatelessWidget {
@@ -21,6 +24,7 @@ class MyApp extends StatelessWidget {
       ],
       child: const MaterialApp(
         home: SplashScreen(),
+        debugShowCheckedModeBanner: false,
       ),
     );
   }
